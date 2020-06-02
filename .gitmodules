@@ -1,0 +1,3 @@
+[submodule "El-Santo"]
+	path = El-Santo
+	url = git@github.com:batomow/El-Santo.git
