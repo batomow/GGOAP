@@ -8,19 +8,63 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Object",
+"class": "Action",
+"language": "GDScript",
+"path": "res://Scripts/classes/action.gd"
+}, {
+"base": "Object",
+"class": "ActionTree",
+"language": "GDScript",
+"path": "res://Scripts/classes/actiontree.gd"
+}, {
+"base": "Node",
+"class": "EventConsumer",
+"language": "GDScript",
+"path": "res://El-Santo/EventConsumer.gd"
+}, {
+"base": "Node",
+"class": "EventManager",
+"language": "GDScript",
+"path": "res://El-Santo/EventManager.gd"
+}, {
+"base": "Node",
+"class": "ServiceManager",
+"language": "GDScript",
+"path": "res://El-Santo/ServiceManager.gd"
+}, {
+"base": "Node",
+"class": "ServiceProvider",
+"language": "GDScript",
+"path": "res://El-Santo/ServiceProvider.gd"
+}, {
+"base": "Position2D",
+"class": "Spawner",
+"language": "GDScript",
+"path": "res://El-Santo/Spawner.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://El-Santo/State.gd"
+} ]
 _global_script_class_icons={
-
+"Action": "",
+"ActionTree": "",
+"EventConsumer": "res://El-Santo/icons/EventConsumer.svg",
+"EventManager": "res://El-Santo/icons/EventManager.svg",
+"ServiceManager": "",
+"ServiceProvider": "res://El-Santo/icons/ServiceProvider.svg",
+"Spawner": "res://El-Santo/icons/Spawner.svg",
+"State": "res://El-Santo/icons/State.svg"
 }
 
 [application]
 
 config/name="GGOAP"
+run/main_scene="res://Scenes/World.tscn"
 config/icon="res://icon.png"
-
-[autoload]
-
-ConditionsManager="*res://Scripts/Managers/ConditionsManager.gd"
 
 [rendering]
 
