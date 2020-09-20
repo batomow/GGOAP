@@ -4,22 +4,26 @@ class_name Action
 #public
 var preconditions: Array setget , get_preconditions
 var posconditions: Array setget , get_posconditions
-var name: String setget , get_name
+var title: String setget , get_title
+var cost: float
 
 #private
 var _preconditions:Array = []
 var _posconditions:Array = [] 
 var _method: FuncRef
-var _cost: float
-var _name: String
+var _title: String
 
+## placeholder actions ##
+func _placeholder(message): 
+	print('doing: ', message)
+var _placeholder = funcref(self, "_doAction")
 
-func _init(name: String, method:FuncRef, cost: float=0, preconditions:Array=[], posconditions:Array=[]).():
-	_name = name
+func _init(title: String, method:FuncRef=_placeholder, cost: float=0, preconditions:Array=[], posconditions:Array=[]).():
+	_title = title
 	_method = method
 	_preconditions = preconditions
 	_posconditions = posconditions
-	_cost = cost
+	self.cost = cost
 
 
 func __void()->void: 
@@ -34,8 +38,8 @@ func execute(args:Array=[], callback:FuncRef=funcref(self, '__void')):
 		printerr('Missing action method')
 
 
-func get_name(): 
-	return _name
+func get_title(): 
+	return _title
 
 
 func get_preconditions(): 
@@ -44,3 +48,5 @@ func get_preconditions():
 
 func get_posconditions(): 
 	return _posconditions
+
+

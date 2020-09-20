@@ -1,19 +1,20 @@
 extends Node
 
-func respond(message): 
-	print(message)
-
-func saySomething(message:String, callback:FuncRef):
-	print(message)
-	callback.call_func('hello my fren')
-
-var myCallback = funcref(self, "respond")
-var myFunction = funcref(self, "saySomething")
-
-var action1 = Action.new("sayHello", myFunction, 1, ['silent'], ['talked'])
-var action2 = Action.new("Root", myFunction, 1, [], ['silent'])
-var tree = ActionTree.new([], [action1, action2], [])
+var tree = ActionTree.new([
+	"doesn't have an axe", 
+	"an axe is available", 
+	"the sun is shining"
+],[
+	Action.new('Get Axe', null, 2, ["an axe is available", "doesn't have an axe"], ['has an axe']),
+	Action.new('Chop Log', null, 4, ["has an axe"], ["make firewood"]),
+	Action.new('Collect Branches', null, 8, [], ["make firewood"])
+],[
+	"make firewood"
+])
 
 func _ready():
-	var root = tree.root
-	print(root.val.name)
+	var root = tree.build_tree()
+	tree.print_tree(root)
+	var planner = Greedy.new()
+	var plan = planner.build_plan(root)
+	planner.print_plan()
