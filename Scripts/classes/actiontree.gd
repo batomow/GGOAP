@@ -13,7 +13,7 @@ var _start_state:Array=[]
 var _goal_state:Array=[]
 
 func _init(start_state:Array=[], actions: Array =[], goal_state:Array=[]).(): 
-	_root = ATreeNode.new(Action.new('Idle', null, 0, [], start_state))
+	_root = ATreeNode.new(Action.new('Idle', 0, [], start_state))
 	for action in actions: 
 		_nodelist.push_back(ATreeNode.new(action))
 	_start_state = start_state

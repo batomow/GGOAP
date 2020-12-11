@@ -14,11 +14,11 @@ var _method: FuncRef
 var _title: String
 
 ## placeholder actions ##
-func _placeholder(message): 
+func _doAction(message, callback): 
 	print('doing: ', message)
 var _placeholder = funcref(self, "_doAction")
 
-func _init(title: String, method:FuncRef=_placeholder, cost: float=0, preconditions:Array=[], posconditions:Array=[]).():
+func _init(title: String, cost: float=0, preconditions:Array=[], posconditions:Array=[], method:FuncRef=_placeholder).():
 	_title = title
 	_method = method
 	_preconditions = preconditions
